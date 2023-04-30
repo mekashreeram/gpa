@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-yax_+a__t8scaac=#z&v-gha(p#v0td&!)+&xf^#k-=dqv(&j!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -48,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'gpa.urls'
@@ -80,7 +83,7 @@ DATABASES = {
         'NAME': 'onlinedb',
         'USER': 'postgres',
         'PASSWORD': 'Shreeram',
-        'HOST': 'database-2.cu6hwldpkvrk.us-east-1.rds.amazonaws.com',
+        'HOST': 'onlinedb.czqbb7mawmej.ap-south-1.rds.amazonaws.com',
         # 'ENGINE' : 'django.db.backends.sqlite3',
         # 'NAME' : BASE_DIR / 'db.sqlite3',
     }
@@ -121,7 +124,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+STATIC_ROOT = BASE_DIR / 'productionfiles'
+
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
