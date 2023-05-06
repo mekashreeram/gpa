@@ -79,13 +79,13 @@ WSGI_APPLICATION = 'gpa.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'onlinedb',
-        'USER': 'postgres',
-        'PASSWORD': 'Shreeram',
-        'HOST': 'onlinedb.czqbb7mawmej.ap-south-1.rds.amazonaws.com',
-        # 'ENGINE' : 'django.db.backends.sqlite3',
-        # 'NAME' : BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': 'oyczdkdi',
+        # 'USER': 'oyczdkdi',
+        # 'PASSWORD': 'MxnB0YZPkaXhjRC4pplRql9Lyx4rS4MZ',
+        # 'HOST': 'arjuna.db.elephantsql.com',
+        'ENGINE' : 'django.db.backends.sqlite3',
+        'NAME' : BASE_DIR / 'db.sqlite3',
     }
 }
 

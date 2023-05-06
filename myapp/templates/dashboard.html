@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  p {
+    color: white;
+    margin: 30px;
+  }
+
+  h1, h2 {
+    margin: 30px;
+  }
+</style>
+
+
+<h1 style="color:white">Your target gpa is: {{targetgpa}}</h1>
+<h2>Number of Semesters Completed: {{nosc}}</h2>
+<h2>Your current CGPA is: {{total}}</h2>
+
+<div class="card container">
+  <table class="container-table">
+    <thead>
+      <tr>
+        <th><h1>Semester</h1></th>
+        <th><h1>SGPA</h1></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for sem in lst %}
+      <tr>
+          <td>Semester{{ forloop.counter }}</td>
+          <td>{{ sem }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    
+  </table>
+  <a href="../profile" style="margin: 20px 50px;"><button class="button-17"> Edit Profile </button></a>
+</div>
+<br>
+
+
+
+<p>To calculate expected sgpa <a href="../gpacalculator/">click here</a></p>
+<p>To Logout <a href="../logout">click here</a></p>
+
+
+{% endblock %}

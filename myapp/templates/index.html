@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+  <style>
+    p {
+      color: white;
+      margin: 30px;
+    }
+  </style>
+
   <h1 class="index-h1">Hello, {{ user.first_name }}!!!</h1>
   <h2 class="index-h2">Your GPA might be: {{gpa}}</h2>
   <div class="card container">
@@ -65,5 +73,6 @@
 
     </form>
   </div>
-<a class="logout-link" href="../logout">Logout</a>
+  <p>To goto Dashboard <a href="../dashboard">click here</a></p>
+  <p>To Logout <a href="../logout">click here</a></p>
 {% endblock %}

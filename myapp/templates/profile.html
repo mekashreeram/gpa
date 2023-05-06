@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+  form {
+    color: white;
+  }
+  label {
+    color: white;
+    margin: 15px;
+  }
+</style>
+
+<form action="addTarget/" method="post">
+  {%  csrf_token %}
+  <label for="target-gpa">Enter Your Target GPA @ End of 8 semesters: </label>
+  <input type="number" step="0.01" value="" name="target-gpa" placeholder="Target gpa" max="10.0" min="4.0" required>
+  <br>
+  <label for="no-sem-completed">Number of Semesters Completed: </label>
+  <input type="number" min="0" max="8" name="no-sem-completed" required>
+  <br>
+  <button class="button-17" type="submit">Enter</button>
+</form>
+
+{% endblock %}

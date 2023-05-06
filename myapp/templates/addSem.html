@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+  form {
+    color: white;
+  }
+  label {
+    color: white;
+    margin: 15px;
+  }
+</style>
+
+
+<form id="form2" action="" method="post">
+
+  {% csrf_token %}
+  {% for i in nosc %}
+    <label for="">Enter the sgpa for {{ i }}:</label>
+    <input name="sem{{i}}" type="number" step="0.01" min="0" max="10" required>
+    <br>
+  {% endfor %}
+  <button type="submit" class="button-17">Submit</button>
+
+</form>
+
+{% endblock %}
