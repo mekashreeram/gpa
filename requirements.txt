@@ -1,5 +1,7 @@
 asgiref==3.6.0
-Django==4.2
+Django==4.0
+django-crispy-forms==2.0
 ez-setup==0.9
 psycopg2-binary==2.9.6
 sqlparse==0.4.4
+whitenoise==6.4.0
