@@ -4,12 +4,8 @@ from .models import Marks, Profile
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
 
-# Create your views here.
-
 def home(req):
   return render(req, "home.html")
-
-
 
 lst = []
 def index(req):
@@ -54,9 +50,6 @@ def index(req):
       return render(req, 'index.html', {"lst": lst, "gpa": gpa, "name": current_user} )
     else:
       return HttpResponse("User not authenticated")
-  
-  
-  
 
 def register(req):
   if req.method == "POST":
@@ -66,7 +59,6 @@ def register(req):
     email = req.POST["email"]
     password1 = req.POST["password1"]
     password2 = req.POST["password2"]
-
     if password1 == password2:
       if User.objects.filter(username=username).exists():
         messages.info(req, "Username already taken")
@@ -77,16 +69,12 @@ def register(req):
         user.save()
         messages.info(req, "User created successfully")
         return redirect("/login")
-    
     else:
       messages.info(req, "password not matched")
-
     return redirect("register")
-
   else:
     return render(req, "register.html")
   
-
 def login(req):
   if req.method == "POST":
     username = req.POST["username"]
@@ -109,11 +97,9 @@ def login(req):
   else:
     return render(req, "login.html")
   
-
 def logout(req):
   auth.logout(req)
   return redirect("home")
-
 
 def delete(req):
   if req.method == 'POST':
@@ -121,9 +107,6 @@ def delete(req):
     Marks.objects.filter(id=int(marks_id)).delete()
     return redirect("../")
   
-
-
-
 def profile(req):
   current_user = req.user
   nosc = Profile.objects.filter(factor = current_user.username)
@@ -131,7 +114,6 @@ def profile(req):
     context = int(nosc[0].nosc)
   else:
     context = 0
-    
   return render(req, "profile.html", {"nosc": range(1, context + 1), })
 
 def addTarget(req):
@@ -144,7 +126,6 @@ def addTarget(req):
     obj.nosc = nosc
     obj.save()
     return redirect("../addSem")
-
 
 def addSem(req):
   sems = []
@@ -205,9 +186,7 @@ def addSem(req):
       curr_prof.Sem8 = sems[7]
 
     curr_prof.save()
-
     return redirect("../../dashboard")
-
   else:
     return render(req, "addSem.html", {"nosc": range(1, nosc + 1)})
 
