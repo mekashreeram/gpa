@@ -28,6 +28,7 @@ SECRET_KEY = 'django-insecure-yax_+a__t8scaac=#z&v-gha(p#v0td&!)+&xf^#k-=dqv(&j!
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = ['https://gpamate.mshreeram.in', 'http://gpamate.mshreeram.in', 'https://gpamate.mshreeram.in/login']
 
 
 # Application definition
